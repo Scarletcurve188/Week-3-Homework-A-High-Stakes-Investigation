@@ -176,3 +176,12 @@ Complete the following tasks:
 ---
 
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+## Week 3 Homework Solution: A High Stakes Investigation
+
+Refer to the following solution files for the homework worksheets: 
+
+* [Week 3 Homework Solution: A High Stakes Investigation]()  
+
+---
+© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
