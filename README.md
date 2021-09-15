@@ -181,7 +181,7 @@ Complete the following tasks:
 
 Refer to the following solution files for the homework worksheets: 
 
-* [Week 3 Homework Solution: A High Stakes Investigation]()  
+* [Week 3 Homework Solution: A High Stakes Investigation](https://github.com/karma-786/Week-3-Homework-A-High-Stakes-Investigation/blob/main/A%20High%20Stakes%20Investigation.md)  
 
 ---
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
