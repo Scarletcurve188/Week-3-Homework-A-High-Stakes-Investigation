@@ -39,10 +39,8 @@ Run the following command to set up the evidence files:
 To move over the win/loss files, run:  
 
         mv Roulette_Player_WinLoss_0310/0310* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/  
-
         mv Roulette_Player_WinLoss_0310/0312* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/  
-
-        mv Roulette_Player_WinLoss_0310/0315* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/`  
+        mv Roulette_Player_WinLoss_0310/0315* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/  
 
 Check the Player_Analysis directory with:  
 
@@ -70,7 +68,7 @@ Preview one file by running:
 
         head 0310_win_loss_player_data  
 
-        Note that losses are indicated by a negative number or a *-*.  
+Note that losses are indicated by a negative number or a -.  
 
 grep the losses based on that value and place it into a file called Roulette_Losses:  
 
