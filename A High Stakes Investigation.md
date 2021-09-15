@@ -96,9 +96,9 @@ Use nano Notes_Player_Analysis to add the data below to the notes files:
         0315_:08:00:00	AM  
         0315_:02:00:00	PM  
     
-    Note that the same person appears at every time of loss: `Mylie Schmidt`.
+Note that the same person appears at every time of loss: `Mylie Schmidt`.
 
-    To figure out the number of times the player played, run:  
+To figure out the number of times the player played, run:  
 
         grep 'Mylie Schmidt' Roulette_Losses| wc -l  
 
@@ -117,22 +117,22 @@ Preview one file by running:
 
 Note that the columns are separated out by spaces:  
 
-       The column numbers for the four fields are ($1, $2, $5, and $6).  
+The column numbers for the four fields are ($1, $2, $5, and $6).  
 
-       The scripts for each time the losses occurred are:  
+The scripts for each time the losses occurred are:  
 
-       Dealers_working_during_losses">cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
-         cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
-         cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses  
-         cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses  
-         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses  
-         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
-         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
-         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses  
-         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses  
-         cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses  
-         cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
-         cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
+    Dealers_working_during_losses">cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
+        cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
+        cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses  
+        cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses  
+        cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses  
+        cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
+        cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
+        cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses  
+        cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses  
+        cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses  
+        cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
+        cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
 
 Use nano Dealers_working_during_losses to add the following to the notes file:  
 
@@ -149,9 +149,9 @@ Use nano Dealers_working_during_losses to add the following to the notes file:
 
 In the notes file, add a summary that explains the following:  
 
-        There is always one dealer and one player active during the time of the losses: Billy Jones and Mylie Schmidt respectively.  
+There is always one dealer and one player active during the time of the losses: `Billy Jones` and `Mylie Schmidt` respectively.  
 
-        They were also both playing and working at the same time on 13 occasions, which is highly suspicious.  
+They were also both playing and working at the same time on `13 occasions`, which is highly suspicious.  
 
 ### Step 4: Scripting Your Tasks
 
