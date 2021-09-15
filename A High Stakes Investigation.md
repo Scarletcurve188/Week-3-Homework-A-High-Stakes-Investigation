@@ -8,13 +8,16 @@ Instructions Use your command-line skills to uncover the identities of the rogue
 
 ### Step 1: Investigation Preparation  
 
-    - To make the directories, run the following commands:  
-        - mkdir Lucky_Duck_Investigations  
-        - cd Lucky_Duck_Investigations  
-        - mkdir Roulette_loss_Investigation  
-        - cd Roulette_loss_Investigation  
-        - mkdir Player_Analysis Dealer_Analysis Player_Dealer_Correlation
-        - touch Player_Analysis/Notes_Player_Analysis Dealer_Analysis/Notes_Dealer_Analysis Player_Dealer_Correlation/Notes_Player_Dealer_Correlation
+To make the directories, run the following commands:  
+
+```
+mkdir Lucky_Duck_Investigations
+cd Lucky_Duck_Investigations
+mkdir Roulette_loss_Investigation
+cd Roulette_loss_Investigation
+mkdir Player_Analysis Dealer_Analysis Player_Dealer_Correlation
+touch Player_Analysis/Notes_Player_Analysis Dealer_Analysis/Notes_Dealer_Analysis Player_Dealer_Correlation/Notes_Player_Dealer_Correlation  
+```
 
 The final directory, with the analysis and correlation files, should have the following structure:
 
@@ -31,55 +34,54 @@ The final directory, with the analysis and correlation files, should have the fo
 
 Run the following command to set up the evidence files:
 
-    - `wget "https://tinyurl.com/3-HW-setup-evidence" && chmod +x ./3-HW-setup-evidence && ./3-HW-setup-evidence`  
+    wget "https://tinyurl.com/3-HW-setup-evidence" && chmod +x ./3-HW-setup-evidence && ./3-HW-setup-evidence  
 
 To move over the win/loss files, run:  
 
-        - `mv Roulette_Player_WinLoss_0310/0310* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/`  
+        mv Roulette_Player_WinLoss_0310/0310* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/  
 
-        - `mv Roulette_Player_WinLoss_0310/0312* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/`  
+        mv Roulette_Player_WinLoss_0310/0312* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/  
 
-        - `mv Roulette_Player_WinLoss_0310/0315* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/`  
+        mv Roulette_Player_WinLoss_0310/0315* Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/`  
 
-    - Check the Player_Analysis directory with:  
+Check the Player_Analysis directory with:  
 
-        - `ls Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/`  
+        ls Lucky_Duck_Investigations/Roulette_loss_Investigation/Player_Analysis/  
 
-    - To move over the dealer schedule files:  
+To move over the dealer schedule files:  
 
-        - `mv Dealer_Schedules_0310/0310* Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/`  
-        - `mv Dealer_Schedules_0310/0312* Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/`
-        - `mv Dealer_Schedules_0310/0315* Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/`  
+        mv Dealer_Schedules_0310/0310* Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/  
+        mv Dealer_Schedules_0310/0312* Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/
+        mv Dealer_Schedules_0310/0315* Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/  
 
-    - Check the Dealer_Analysis directory with:  
+Check the Dealer_Analysis directory with:  
 
-        - `ls Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/`  
+        ls Lucky_Duck_Investigations/Roulette_loss_Investigation/Dealer_Analysis/  
 
 ### Step 3: Correlating the Evidence  
 
 #### Player Analysis  
 
-    - Navigate into the directory:  
+Navigate into the directory:  
     
-        - `cd Player_Analysis`
+        cd Player_Analysis
 
-    - Preview one file by running:  
+Preview one file by running:  
 
-        - `head 0310_win_loss_player_data`  
+        head 0310_win_loss_player_data  
 
-        - Note that losses are indicated by a negative number or a *-*.  
+        Note that losses are indicated by a negative number or a *-*.  
 
-    - grep the losses based on that value and place it into a file called Roulette_Losses:  
+grep the losses based on that value and place it into a file called Roulette_Losses:  
 
-        - `head 0310_win_loss_player_data | grep - * > Roulette_Losses`  
+        head 0310_win_loss_player_data | grep - * > Roulette_Losses  
 
-    - Preview the file:  
+Preview the file:  
 
-        - `head Roulette_Losses`  
+        head Roulette_Losses  
     
-    - Use nano Notes_Player_Analysis to add the data below to the notes files:  
+Use nano Notes_Player_Analysis to add the data below to the notes files:  
 
-        ```
         Times of losses:  
           
         0310_:05:00:00	AM  
@@ -95,118 +97,116 @@ To move over the win/loss files, run:
         0315_:05:00:00	AM  
         0315_:08:00:00	AM  
         0315_:02:00:00	PM  
-        ```
+    
+    Note that the same person appears at every time of loss: `Mylie Schmidt`.
 
-    - Note that the same person appears at every time of loss: `Mylie Schmidt`.
+    To figure out the number of times the player played, run:  
 
-    - To figure out the number of times the player played, run:  
+        grep 'Mylie Schmidt' Roulette_Losses| wc -l  
 
-        - `grep 'Mylie Schmidt' Roulette_Losses| wc -l`  
-
-
-        - The answer is `13`.
+        The answer is `13`.
 
 
 #### Dealer Analysis  
 
-    - Navigate into the directory:  
+Navigate into the directory:  
 
-        - `cd Dealer_Analysis`  
+       cd Dealer_Analysis  
 
-    - Preview one file by running:  
+Preview one file by running:  
 
-        - `head 0310_Dealer_schedule`  
+       head 0310_Dealer_schedule  
 
-    - Note that the columns are separated out by spaces:  
+Note that the columns are separated out by spaces:  
 
-        - The column numbers for the four fields are ($1, $2, $5, and $6).  
+       The column numbers for the four fields are ($1, $2, $5, and $6).  
 
-    - The scripts for each time the losses occurred are:  
+       The scripts for each time the losses occurred are:  
 
-        - `Dealers_working_during_losses">cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses`  
-        - `cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses`  
-        - `cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses`  
-        - `cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses`  
-        - `cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses`  
-        - `cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses`  
-        - `cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses`  
-        - `cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses`  
-        - `cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses`  
-        - `cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses`  
-        - `cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses`  
-        - `cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses`  
+       Dealers_working_during_losses">cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
+         cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
+         cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses  
+         cat 0310_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses  
+         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses  
+         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
+         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
+         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 PM' >> Dealers_working_during_losses  
+         cat 0312_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '11:00:00 PM' >> Dealers_working_during_losses  
+         cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '05:00:00 AM' >> Dealers_working_during_losses  
+         cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '08:00:00 AM' >> Dealers_working_during_losses  
+         cat 0315_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep '02:00:00 PM' >> Dealers_working_during_losses  
 
-    - Use nano Dealers_working_during_losses to add the following to the notes file:  
+Use nano Dealers_working_during_losses to add the following to the notes file:  
 
-        - The dealer working during the time of the losses is always Billy Jones.  
+        The dealer working during the time of the losses is always Billy Jones.  
 
-        - To get the count, run:  
+        To get the count, run:  
 
-            - `grep "Billy Jones" Dealers_working_during_losses | wc -l`  
+            grep "Billy Jones" Dealers_working_during_losses | wc -l  
 
-        - The answer is `13`.
+        The answer is `13`.
 
 
 #### Player/Employee Correlation  
 
-    - In the notes file, add a summary that explains the following:  
+In the notes file, add a summary that explains the following:  
 
-        - `There is always one dealer and one player active during the time of the losses: Billy Jones and Mylie Schmidt respectively.`  
+        There is always one dealer and one player active during the time of the losses: Billy Jones and Mylie Schmidt respectively.  
 
-        - `They were also both playing and working at the same time on 13 occasions, which is highly suspicious.`  
+        They were also both playing and working at the same time on 13 occasions, which is highly suspicious.  
 
 ### Step 4: Scripting Your Tasks
 
-    - Create the shell script that will easily analyze future employee schedules:  
+Create the shell script that will easily analyze future employee schedules:  
 
-        - `nano roulette_dealer_finder_by_time.sh`  
+        nano roulette_dealer_finder_by_time.sh  
 
-    - Inside the shell script place:  
+        Inside the shell script place:  
 
-        - `cat $1_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep "$2"`
+            cat $1_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep "$2"
 
-    - Save the script.  
+        Save the script.  
 
-    - Test the script by running:  
+        Test the script by running:  
 
-        - `sh roulette_dealer_finder_by_time.sh 0310 '02:00:00 PM'`  
+            sh roulette_dealer_finder_by_time.sh 0310 '02:00:00 PM'  
 
-    - The arguments are:  
+        The arguments are:  
 
-        - `$1 = 0310`  
-        - `$2 = '02:00:00 PM'`  
+            $1 = 0310  
+            $2 = '02:00:00 PM'  
 
-    - After running the script, it should show:  
+        After running the script, it should show:  
 
-        - `02:00:00 PM Billy Jones`  
+            02:00:00 PM Billy Jones  
 
 ### Bonus  
 
-    - Create the shell script to help identify future fraud:  
+Create the shell script to help identify future fraud:  
 
-        - `nano roulette_dealer_finder_by_time_and_game.sh`  
+        nano roulette_dealer_finder_by_time_and_game.sh  
 
-    - Inside the shell script, place:  
+Inside the shell script, place:  
 
-        - `cat $1_Dealer_schedule | awk -F" " '{print $1, $2, '$3','$4' }'| grep "$2"`  
+        cat $1_Dealer_schedule | awk -F" " '{print $1, $2, '$3','$4' }'| grep "$2"  
 
-            - To view the dealer for Blackjack on March 10 at 2:00 p.m., run:  
+        To view the dealer for Blackjack on March 10 at 2:00 p.m., run:  
 
-                - `sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$3' '$4'`  
+            sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$3' '$4'  
 
-                - `This will show: 02:00:00 PM Chyna Mercado`  
+            This will show: 02:00:00 PM Chyna Mercado  
 
-            - To view the dealer for roulette on March 10 at 2:00 p.m., run:  
+        To view the dealer for roulette on March 10 at 2:00 p.m., run:  
 
-                - `sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$5' '$6'`  
+            sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$5' '$6'  
 
-                - `This will show: 02:00:00 PM Billy Jones`  
+            This will show: 02:00:00 PM Billy Jones  
 
-            - To view the dealer for Texas Hold 'Em on March 10 at 2:00 p.m., run:  
+        To view the dealer for Texas Hold 'Em on March 10 at 2:00 p.m., run:  
 
-                - `sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$7' '$8'`  
+            sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$7' '$8'  
 
-                - `This will show: 02:00:00 PM Cleveland Hanna`  
+            This will show: 02:00:00 PM Cleveland Hanna  
 
 ---  
 
