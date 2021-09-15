@@ -136,13 +136,13 @@ The scripts for each time the losses occurred are:
 
 Use nano Dealers_working_during_losses to add the following to the notes file:  
 
-        The dealer working during the time of the losses is always Billy Jones.  
+The dealer working during the time of the losses is always `Billy Jones`.  
 
-        To get the count, run:  
+To get the count, run:  
 
             grep "Billy Jones" Dealers_working_during_losses | wc -l  
 
-        The answer is `13`.
+            The answer is `13`.
 
 
 #### Player/Employee Correlation  
@@ -159,22 +159,22 @@ Create the shell script that will easily analyze future employee schedules:
 
         nano roulette_dealer_finder_by_time.sh  
 
-        Inside the shell script place:  
+Inside the shell script place:  
 
             cat $1_Dealer_schedule | awk -F" " '{print $1, $2, $5,$6}'| grep "$2"
 
-        Save the script.  
+Save the script.  
 
-        Test the script by running:  
+Test the script by running:  
 
             sh roulette_dealer_finder_by_time.sh 0310 '02:00:00 PM'  
 
-        The arguments are:  
+The arguments are:  
 
             $1 = 0310  
             $2 = '02:00:00 PM'  
 
-        After running the script, it should show:  
+After running the script, it should show:  
 
             02:00:00 PM Billy Jones  
 
@@ -188,23 +188,23 @@ Inside the shell script, place:
 
         cat $1_Dealer_schedule | awk -F" " '{print $1, $2, '$3','$4' }'| grep "$2"  
 
-        To view the dealer for Blackjack on March 10 at 2:00 p.m., run:  
+To view the dealer for `Blackjack` on `March 10 at 2:00 p.m.`, run:  
 
             sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$3' '$4'  
 
-            This will show: 02:00:00 PM Chyna Mercado  
+This will show: `02:00:00 PM Chyna Mercado`  
 
-        To view the dealer for roulette on March 10 at 2:00 p.m., run:  
+To view the dealer for `roulette` on `March 10 at 2:00 p.m.`, run:  
 
             sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$5' '$6'  
 
-            This will show: 02:00:00 PM Billy Jones  
+This will show: `02:00:00 PM Billy Jones`  
 
-        To view the dealer for Texas Hold 'Em on March 10 at 2:00 p.m., run:  
+To view the dealer for `Texas Hold 'Em` on `March 10 at 2:00 p.m.`, run:  
 
             sh roulette_dealer_finder_by_time_and_game.sh 0310 '02:00:00 PM' '$7' '$8'  
 
-            This will show: 02:00:00 PM Cleveland Hanna  
+This will show: `02:00:00 PM Cleveland Hanna`  
 
 ---  
 
